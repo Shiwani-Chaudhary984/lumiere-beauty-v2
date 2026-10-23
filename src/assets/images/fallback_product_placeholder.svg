@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFBF9" />
+      <stop offset="50%" stop-color="#F6EFEF" />
+      <stop offset="100%" stop-color="#EEDEE0" />
+    </linearGradient>
+    <linearGradient id="roseGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5858F" />
+      <stop offset="50%" stop-color="#B76E79" />
+      <stop offset="100%" stop-color="#8E4F58" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad)" />
+  <rect x="24" y="24" width="752" height="552" fill="none" stroke="#B76E79" stroke-opacity="0.25" stroke-width="1.5" rx="8" />
+  <g transform="translate(400, 240)">
+    <!-- Botanical Flower Crest -->
+    <circle cx="0" cy="0" r="64" fill="#FFFFFF" fill-opacity="0.8" stroke="#B76E79" stroke-width="1.5" stroke-opacity="0.4" />
+    <path d="M0 -36 C16 -16 28 -8 28 8 C28 22 16 32 0 32 C-16 32 -28 22 -28 8 C-28 -8 -16 -16 0 -36 Z" fill="none" stroke="url(#roseGold)" stroke-width="2" />
+    <path d="M-36 0 C-16 16 -8 28 8 28 C22 28 32 16 32 0 C32 -16 22 -28 8 -28 C-8 -28 -16 -16 -36 0 Z" fill="none" stroke="url(#roseGold)" stroke-width="1.5" stroke-opacity="0.7" />
+    <circle cx="0" cy="0" r="5" fill="url(#roseGold)" />
+  </g>
+  <text x="400" y="360" font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="28" font-weight="600" letter-spacing="4" fill="#2E2325" text-anchor="middle">LUMIÈRE BEAUTY</text>
+  <text x="400" y="395" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="2" fill="#8C7D80" text-anchor="middle">HIMALAYAN BOTANICAL COLLECTION</text>
+</svg>

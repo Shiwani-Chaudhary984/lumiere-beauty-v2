@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumière Beauty — Luxury Cosmetics Store</title>
+    <meta name="description" content="Premium cosmetics and skincare boutique featuring artisanal botanicals, real shopping cart, NPR pricing, Cash on Delivery, and complete checkout experience." />
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Lumière Beauty — Luxury Cosmetics Store" />
+    <meta property="og:description" content="Premium cosmetics and skincare boutique featuring artisanal botanicals, real shopping cart, NPR pricing, Cash on Delivery, and complete checkout experience." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./src/assets/images/favicon.svg" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./src/style.css" />
+
+    <!-- Resilient Image Fallback & 404 Logging Handler -->
+    <script>
+      window.handleImageError = function(imgEl, context) {
+        console.error('[Lumière Image Error] 404/Failed to load image:', imgEl.src, context ? `(context: ${context})` : '');
+        imgEl.setAttribute('data-image-error', '404');
+        if (!imgEl.dataset.fallbackApplied) {
+          imgEl.dataset.fallbackApplied = 'true';
+          imgEl.src = './src/assets/images/fallback_product_placeholder.svg';
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <!-- Top Promotional Banner -->
+    <div class="promo-bar">
+      <div class="promo-bar-content">
+        <span>Complimentary Express Delivery Across Nepal for Orders Over Rs. 3,000</span>
+        <span class="promo-code-tag" onclick="navigator.clipboard?.writeText('LUMIERE15'); showToast('Copied code LUMIERE15 to clipboard!');" title="Click to copy">
+          Code: LUMIERE15
+        </span>
+      </div>
+    </div>
+
+    <!-- Navigation Header (3-Zone Top Bar Contract) -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Zone 1: Wordmark -->
+        <a href="#home" class="brand-wordmark">
+          Lumière
+          <span>Beauty</span>
+        </a>
+
+        <!-- Zone 2: Navigation Links -->
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#shop" class="nav-link">Shop Collection</a></li>
+            <li><a href="#wishlist" class="nav-link">Wishlist</a></li>
+            <li><a href="#about" class="nav-link">Our Story</a></li>
+            <li><a href="#contact" class="nav-link">Showroom</a></li>
+            <li><a href="#faq" class="nav-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Zone 3: Header Actions -->
+        <div class="header-actions">
+          <!-- Search trigger -->
+          <a href="#shop" class="action-btn" title="Search Products" aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </a>
+
+          <!-- Wishlist -->
+          <a href="#wishlist" class="action-btn" title="View Wishlist" aria-label="Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+            <span class="badge-count" id="header-wishlist-count" style="display: none;">0</span>
+          </a>
+
+          <!-- Shopping Bag / Cart Drawer -->
+          <button type="button" class="action-btn" onclick="toggleCartDrawer(true)" title="Shopping Bag" aria-label="Shopping Bag">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+              <path d="M3 6h18"></path>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="badge-count" id="header-cart-count" style="display: none;">0</span>
+          </button>
+
+          <!-- Account -->
+          <a href="#account" class="action-btn" title="Demo Account & Orders" aria-label="Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="5"></circle>
+              <path d="M20 21a8 8 0 0 0-16 0"></path>
+            </svg>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu(true)" aria-label="Open Navigation Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" onclick="if(event.target === this) toggleMobileMenu(false)">
+      <div class="mobile-nav-content">
+        <div class="mobile-nav-header">
+          <span class="brand-wordmark" style="font-size: 1.45rem;">
+            Lumière <span>Beauty</span>
+          </span>
+          <button type="button" onclick="toggleMobileMenu(false)" style="color: var(--text-muted); padding: 0.5rem;" aria-label="Close menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <ul class="mobile-nav-links">
+          <li><a href="#home" class="mobile-nav-item active" onclick="toggleMobileMenu(false)">Home</a></li>
+          <li><a href="#shop" class="mobile-nav-item" onclick="toggleMobileMenu(false)">Shop All Products</a></li>
+          <li><a href="#cart" class="mobile-nav-item" onclick="toggleMobileMenu(false)">Shopping Bag</a></li>
+          <li><a href="#wishlist" class="mobile-nav-item" onclick="toggleMobileMenu(false)">My Wishlist</a></li>
+          <li><a href="#about" class="mobile-nav-item" onclick="toggleMobileMenu(false)">Our Story & Heritage</a></li>
+          <li><a href="#contact" class="mobile-nav-item" onclick="toggleMobileMenu(false)">Kathmandu Showroom</a></li>
+          <li><a href="#faq" class="mobile-nav-item" onclick="toggleMobileMenu(false)">FAQ & Delivery</a></li>
+          <li><a href="#account" class="mobile-nav-item" onclick="toggleMobileMenu(false)">Demo Account & Orders</a></li>
+        </ul>
+
+        <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-light); font-size: 0.8rem; color: var(--text-muted);">
+          <div>Durbar Marg Showroom, Kathmandu</div>
+          <div style="margin-top: 0.25rem;">+977 1-4228900 · care@lumierebeauty.com.np</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN APP SCREEN ROUTER CONTAINER -->
+    <main id="main-content">
+      <!-- 1. HOME SCREEN -->
+      <div id="screen-home" class="screen-view active">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="hero-kicker">Himalayan Botanical Alchemy</span>
+              <h1 class="hero-title">
+                Awaken your skin’s <em>sublime inner radiance</em>
+              </h1>
+              <p class="hero-desc">
+                Artisanal skincare and couture cosmetics crafted from wild-harvested Himalayan botanicals and gold essences. Designed in Kathmandu for pure, uncompromising efficacy.
+              </p>
+              <div class="hero-cta-group">
+                <a href="#shop" class="btn-primary">
+                  Explore Collection
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="#about" class="btn-outline">
+                  Our Botanical Heritage
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-media">
+              <div class="hero-img-wrap">
+                <img src="./src/assets/images/hero_lumiere_cosmetics_1792767009991.jpg" alt="Lumière Beauty Collection" onerror="handleImageError(this, 'hero')" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feature Trust Strip -->
+        <section class="features-strip">
+          <div class="container">
+            <div class="features-grid">
+              <div class="feature-item">
+                <div class="feature-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                </div>
+                <div class="feature-text">
+                  <h4>100% Himalayan Pure</h4>
+                  <p>Wild-foraged botanicals with zero parabens or sulfates</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div class="feature-text">
+                  <h4>Cash on Delivery (COD)</h4>
+                  <p>Pay at your doorstep anywhere across Nepal</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="feature-text">
+                  <h4>Complimentary Delivery</h4>
+                  <p>Free express delivery on orders over Rs. 3,000</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                </div>
+                <div class="feature-text">
+                  <h4>Durbar Marg Showroom</h4>
+                  <p>Bespoke skincare consultations & tester bar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-kicker">Curated Formulations</span>
+              <h2 class="section-title">The Radiance Essentials</h2>
+              <p class="section-desc">Handcrafted in small batches to preserve botanical bio-activity and deliver instant, skin-plumping hydration.</p>
+            </div>
+
+            <div class="product-grid" id="home-featured-grid">
+              <!-- Rendered via JS -->
+            </div>
+
+            <div style="text-align: center; margin-top: 3.5rem;">
+              <a href="#shop" class="btn-primary">
+                View All 8 Formulations
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Story & Philosophy Section -->
+        <section class="section story-section">
+          <div class="container">
+            <div class="story-grid">
+              <div class="story-copy">
+                <span class="hero-kicker">Ethical Himalayan Luxury</span>
+                <h3>Where Ancient Botany Meets Haute Cosmetic Science</h3>
+                <p>
+                  At Lumière Beauty, every drops counts. We partner with women-led farming cooperatives across Mustang, Nuwakot, and Dolpa to gently harvest wild sea buckthorn berries, cold-pressed rosehip, and organic damask roses.
+                </p>
+                <p>
+                  Our formulations are created without parabens, synthetic fillers, or animal cruelty. Each bottle represents clean, radiant self-care made with pride in Nepal.
+                </p>
+                <div class="story-metrics-grid">
+                  <div>
+                    <div class="metric-num tabular-nums">100%</div>
+                    <div class="metric-label">Clean Formulated</div>
+                  </div>
+                  <div>
+                    <div class="metric-num tabular-nums">Rs. 0</div>
+                    <div class="metric-label">Delivery over 3k</div>
+                  </div>
+                  <div>
+                    <div class="metric-num tabular-nums">4.9 ★</div>
+                    <div class="metric-label">Client Rating</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="story-image-wrap">
+                <img src="./src/assets/images/botanical_ingredients_1792768902453.jpg" alt="Botanical Ingredients" onerror="handleImageError(this, 'botanical-story')" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 2. SHOP CATALOG SCREEN -->
+      <div id="screen-shop" class="screen-view">
+        <div class="shop-header-banner">
+          <div class="container" style="text-align: center;">
+            <span class="section-kicker">The Complete Collection</span>
+            <h1 class="section-title">Clean Luxury Cosmetics & Skincare</h1>
+            <p class="section-desc" style="max-width: 600px; margin: 0 auto;">
+              Nourish, illuminate, and celebrate your natural skin with our pure botanical creations.
+            </p>
+          </div>
+        </div>
+
+        <div class="container shop-layout">
+          <!-- Filter Controls Bar -->
+          <div class="shop-controls-bar">
+            <!-- Category Tabs -->
+            <div class="shop-filter-tabs">
+              <button class="filter-tab-btn active" data-cat="all" onclick="navigateTo('#shop?category=all')">All Products</button>
+              <button class="filter-tab-btn" data-cat="skincare" onclick="navigateTo('#shop?category=skincare')">Skincare</button>
+              <button class="filter-tab-btn" data-cat="makeup" onclick="navigateTo('#shop?category=makeup')">Makeup</button>
+              <button class="filter-tab-btn" data-cat="fragrance" onclick="navigateTo('#shop?category=fragrance')">Fragrance</button>
+              <button class="filter-tab-btn" data-cat="sets" onclick="navigateTo('#shop?category=sets')">Ritual Sets</button>
+            </div>
+
+            <!-- Search & Sort Controls -->
+            <div class="shop-search-sort">
+              <div class="search-input-wrap">
+                <svg class="search-icon-pos" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="shop-search-input" placeholder="Search by name, oil, rose..." />
+              </div>
+
+              <select class="sort-select" id="shop-sort-select">
+                <option value="popular">Sort: Featured & Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Active filters line -->
+          <div class="shop-active-filters-bar">
+            <span id="shop-results-count">8 Products Available</span>
+            <span>·</span>
+            <span>All Prices in Nepalese Rupees (NPR)</span>
+          </div>
+
+          <!-- Grid -->
+          <div class="product-grid" id="shop-product-grid">
+            <!-- Dynamic products rendered via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. PRODUCT DETAILS SCREEN (Rendered dynamically) -->
+      <div id="screen-product-detail" class="screen-view"></div>
+
+      <!-- 4. SHOPPING CART SCREEN (Rendered dynamically) -->
+      <div id="screen-cart" class="screen-view"></div>
+
+      <!-- 5. CHECKOUT SCREEN (Rendered dynamically) -->
+      <div id="screen-checkout" class="screen-view"></div>
+
+      <!-- 6. ORDER CONFIRMATION SCREEN (Rendered dynamically) -->
+      <div id="screen-confirmation" class="screen-view"></div>
+
+      <!-- 7. WISHLIST SCREEN (Rendered dynamically) -->
+      <div id="screen-wishlist" class="screen-view"></div>
+
+      <!-- 8. ABOUT US SCREEN (Rendered dynamically) -->
+      <div id="screen-about" class="screen-view"></div>
+
+      <!-- 9. CONTACT US SCREEN (Rendered dynamically) -->
+      <div id="screen-contact" class="screen-view"></div>
+
+      <!-- 10. FAQ SCREEN (Rendered dynamically) -->
+      <div id="screen-faq" class="screen-view"></div>
+
+      <!-- 11. DEMO ACCOUNT & ORDER HISTORY (Rendered dynamically) -->
+      <div id="screen-account" class="screen-view"></div>
+    </main>
+
+    <!-- Slide-Out Shopping Bag Drawer -->
+    <div id="cart-drawer" class="cart-drawer-backdrop" onclick="if(event.target === this) toggleCartDrawer(false)">
+      <div class="cart-drawer-pane">
+        <div class="drawer-header">
+          <h3>Shopping Bag</h3>
+          <button type="button" onclick="toggleCartDrawer(false)" style="color: var(--text-muted); padding: 0.5rem;" aria-label="Close Bag">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="drawer-body" id="cart-drawer-body">
+          <!-- Populated via JS -->
+        </div>
+
+        <div class="drawer-footer" id="cart-drawer-footer">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; font-weight: 700; font-size: 1.15rem;">
+            <span>Subtotal</span>
+            <span id="drawer-subtotal-val" class="tabular-nums" style="color: var(--accent-rose);">Rs. 0</span>
+          </div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Taxes & Nepal shipping calculated at checkout. Free shipping over Rs. 3,000.
+          </div>
+          <button type="button" class="btn-primary" style="width: 100%; height: 3rem; margin-bottom: 0.75rem;" onclick="toggleCartDrawer(false); navigateTo('#checkout');">
+            Checkout Now
+          </button>
+          <button type="button" class="btn-outline" style="width: 100%; height: 2.75rem;" onclick="toggleCartDrawer(false); navigateTo('#cart');">
+            View Full Bag
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="modal-backdrop" onclick="if(event.target === this) closeQuickView()">
+      <div class="modal-container">
+        <button type="button" class="modal-close-btn" onclick="closeQuickView()" aria-label="Close Quick View">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div id="quick-view-content">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Luxury Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Col 1: Brand Info -->
+          <div class="footer-col">
+            <span class="brand-wordmark" style="color: #FFFFFF; font-size: 1.6rem; margin-bottom: 1rem;">
+              Lumière <span>Beauty</span>
+            </span>
+            <p style="font-size: 0.88rem; line-height: 1.7; color: #AAA0A2;">
+              Artisanal Himalayan skincare and luxury cosmetics. Handcrafted in small batches with wild-harvested botanicals and purest rose-gold accents.
+            </p>
+            <div style="margin-top: 1.25rem; font-size: 0.82rem; color: #8C7D80;">
+              Flagship Boutique: Durbar Marg, Kathmandu<br>
+              Phone: +977 1-4228900
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation -->
+          <div class="footer-col">
+            <h4>Boutique</h4>
+            <ul>
+              <li><a href="#shop?category=skincare">Himalayan Skincare</a></li>
+              <li><a href="#shop?category=makeup">Couture Makeup</a></li>
+              <li><a href="#shop?category=fragrance">Artisan Fragrance</a></li>
+              <li><a href="#shop?category=sets">Curated Ritual Sets</a></li>
+              <li><a href="#wishlist">Saved Wishlist</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Customer Care -->
+          <div class="footer-col">
+            <h4>Customer Care</h4>
+            <ul>
+              <li><a href="#faq">Shipping Across Nepal</a></li>
+              <li><a href="#checkout">Cash on Delivery (COD)</a></li>
+              <li><a href="#account">Demo Account & Orders</a></li>
+              <li><a href="#contact">Skincare Consultations</a></li>
+              <li><a href="#about">Botanical Purity Standards</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Newsletter -->
+          <div class="footer-col">
+            <h4>The Lumière Circle</h4>
+            <p style="font-size: 0.85rem; color: #AAA0A2; line-height: 1.6;">
+              Subscribe to receive private invitations to botanical harvest editions and complimentary samples.
+            </p>
+            <form onsubmit="event.preventDefault(); showToast('Welcome to The Lumière Circle!'); this.reset();" class="footer-newsletter-box">
+              <input type="email" placeholder="Enter your email" required />
+              <button type="submit" class="btn-primary" style="padding: 0 1rem; font-size: 0.78rem;">Join</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>
+            © 2026 LUMIÈRE BEAUTY NEPAL PVT. LTD. ALL RIGHTS RESERVED.
+          </div>
+          <div style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+            <span>Payment Options: Cash on Delivery (COD) · eSewa · Khalti · Fonepay · Card Demo</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Vanilla JavaScript Application -->
+    <script src="./src/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Lumière Beauty — Luxury Cosmetics Store",
+  "description": "Premium cosmetics and skincare boutique featuring artisanal botanicals, real shopping cart, NPR pricing, Cash on Delivery, and complete checkout experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
